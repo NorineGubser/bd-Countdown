@@ -30,5 +30,6 @@ function countdown() {
   setTimeout(countdown, 1000);
 }
 
-document.addEventListener('DOMContentLoaded', countdown);
+countdown(); // einfach direkt aufrufen
+
 
