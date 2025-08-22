@@ -1,4 +1,5 @@
 function countdown() {
+  console.log("Countdown läuft!"); // <-- Test
   var endDate = new Date(2025, 0, 7, 0, 0, 0); // Jahr, Monat-1, Tag, Stunde, Minute, Sekunde
   var now = new Date();
   var diff = Math.floor((endDate - now) / 1000); // Differenz in Sekunden
