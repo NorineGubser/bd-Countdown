@@ -15,11 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Test: Countdown endet in 10 Sekunden
     var endDate = new Date(new Date().getTime() + 10 * 1000);
 
-    const now     = new Date();
 
-    let diffSec = Math.floor((endDate.getTime() - now.getTime()) / 1000);
-
-    if (diffSec <= 0) {
       // Countdown abgelaufen → Countdown & Bild aus, Galerie an
       countdownDiv.style.display = 'none';
       bgImageDiv.style.display   = 'none';
