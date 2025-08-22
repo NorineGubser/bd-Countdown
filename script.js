@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+console.log("Script läuft!");
+  
   function countdown() {
     // Enddatum: 7. Januar 2026, 00:00:00 UTC
     var endDate = new Date(Date.UTC(2026, 0, 7, 0, 0, 0));
