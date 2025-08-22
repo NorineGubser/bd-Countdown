@@ -1,39 +1,17 @@
-/* Schriftart von Google Fonts einbinden */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
-
-body {
-  font-family: 'Caveat', cursive; /* Schnurschrift */
-  background-color: #1e90ff; /* Blau */
-  color: #ffffff; /* weiße Schrift */
-  text-align: center;
-  margin: 0;
-  padding: 50px 20px;
+#gallery {
+  display: none; /* Galerie unsichtbar, bis Countdown abläuft */
 }
 
 #countdown {
-  font-size: 60px; /* sehr groß */
+  font-family: 'Caveat', cursive;
+  font-size: 60px;
+  color: white;
+  text-align: center;
   margin: 50px 0;
 }
 
-#gallery {
-  display: none;
-}
-
-#gallery h2 {
-  font-size: 50px;
-  color: #ffeb3b; /* gelb für Kontrast */
-  margin-bottom: 30px;
-}
-
-.photos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.photos img {
-  width: 250px;
-  border-radius: 15px;
-  box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+body {
+  background-color: #1e90ff;
+  margin: 0;
+  padding: 50px 20px;
 }
