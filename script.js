@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function tick() {
     // Ziel: 07.01.2026, 00:00 (lokale Zeit)
-    const endDate = new Date(2026, 0, 7, 0, 0, 0);
+    // Test: Countdown endet in 10 Sekunden
+    var endDate = new Date(new Date().getTime() + 10 * 1000);
+
     const now     = new Date();
 
     let diffSec = Math.floor((endDate.getTime() - now.getTime()) / 1000);
