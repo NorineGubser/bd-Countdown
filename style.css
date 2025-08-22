@@ -11,7 +11,10 @@
 }
 
 body {
-  background-color: #1e90ff;
-  margin: 0;
-  padding: 50px 20px;
+  background-color: DeepSkyBlue ;
+  background-image: url("Cloud.svg");
+  background-repeat: no-repeat;
+  background-position: 90% top;
+  color: midnightblue;
+  height: 100vh;
 }
