@@ -62,3 +62,46 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
+
+
+
+#gallery {
+  display: none;                     /* unsichtbar bis Countdown abläuft */
+  background: #d8f8d8;               /* weiches Grün */
+  padding: 30px 20px;
+  border-radius: 18px;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+#gallery h2 {
+  font-size: 42px;
+  color: #2e7d32;                    /* kräftigeres Grün für den Titel */
+  margin-bottom: 18px;
+}
+
+.photos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;                 /* keine Umbrüche → Bilder nebeneinander */
+}
+
+.photos img {
+  max-width: 30%;                    /* alle drei passen nebeneinander */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.grusstext {
+  margin-top: 28px;
+  font-size: 24px;
+  color: #1b5e20;                    /* dunkelgrün für Text */
+}
+
+.grusstext a {
+  color: #1565c0;                    /* blauer Link */
+  text-decoration: underline;
+}
