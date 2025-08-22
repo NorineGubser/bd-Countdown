@@ -1,31 +1,39 @@
+/* Schriftart von Google Fonts einbinden */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Caveat', cursive; /* Schnurschrift */
+  background-color: #1e90ff; /* Blau */
+  color: #ffffff; /* weiße Schrift */
   text-align: center;
-  margin: 30px;
-  background-color: #fff8e1;
-  color: #333;
+  margin: 0;
+  padding: 50px 20px;
 }
 
 #countdown {
-  font-size: 20pt;
-  margin: 30px 0;
+  font-size: 60px; /* sehr groß */
+  margin: 50px 0;
+}
+
+#gallery {
+  display: none;
 }
 
 #gallery h2 {
-  font-size: 24pt;
-  color: #e91e63;
+  font-size: 50px;
+  color: #ffeb3b; /* gelb für Kontrast */
+  margin-bottom: 30px;
 }
 
 .photos {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 20px 0;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .photos img {
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 8px 12px rgba(0,0,0,0.3);
 }
-
