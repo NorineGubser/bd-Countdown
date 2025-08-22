@@ -1,12 +1,64 @@
+/* Handschrift (Schnurschrift) */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+:root {
+  --text: #ffffff;
+  --blue: #1e90ff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--blue);
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  text-align: center;
+  padding: 40px 16px;
+}
+
+#countdown {
+  font-size: 56px;          /* groß, aber nicht übertrieben */
+  line-height: 1.1;
+  margin: 10px auto 8px;
+}
+
 #bg-image {
-  margin: 20px auto;
-  text-align: center; /* Bild zentrieren */
+  display: flex;             /* zentriert das Bild horizontal */
+  justify-content: center;
+  margin: 12px auto 24px;    /* unter dem Countdown */
 }
 
 #bg-image img {
-  max-width: 300px;   /* Bildgröße begrenzen */
-  width: 100%;        /* responsive */
+  max-width: 220px;          /* kleineres Bild */
+  width: 100%;
   height: auto;
-  border-radius: 15px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+#gallery {                   /* am Anfang unsichtbar */
+  display: none;
+}
+
+#gallery h2 {
+  font-size: 48px;
+  color: #ffeb3b;
+  margin: 12px 0 20px;
+}
+
+.photos {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.photos img {
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
