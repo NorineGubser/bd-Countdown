@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   function countdown() {
-    // Enddatum: 7. Januar 2026, 00:00 Uhr
-    var endDate = new Date(2026, 0, 7, 0, 0, 0); // Januar = 0
+    var endDate = new Date(Date.UTC(2026, 0, 7, 0, 0, 0)); 
     var now = new Date();
+    var nowUtc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 
+                          now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+
 
     // Differenz in Sekunden
-    var diff = Math.floor((endDate - now) / 1000);
+    var diff = Math.floor((endDate - nowUtc) / 1000);
 
     var countdownDiv = document.getElementById('countdown');
     var galleryDiv = document.getElementById('gallery');
