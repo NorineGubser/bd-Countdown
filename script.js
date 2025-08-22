@@ -1,51 +1,30 @@
 function countdown() {
-  var tage = 'Tage';
-  var countdown_d, countdown_h, countdown_m, countdown_s;
-  var ausgabe_s, ausgabe_m, ausgabe_h;
-  var endTime = [];
-  var text = [];
-  var i = 0;
+  var endDate = new Date(2025, 7, 22, 0, 0, 0); // Jahr, Monat-1, Tag, Stunde, Minute, Sekunde
+  var now = new Date();
+  var diff = Math.floor((endDate - now) / 1000); // Differenz in Sekunden
 
-  endTime[0] = new Date(2026, 1, 7, 0, 0, 0);
-  text[0] = 'zum 18. Geburtstag!';
-
-  var timeNow = new Date();
-  while ((endTime[i] - timeNow) < 0) {
-    i++;
-    if(i >= endTime.length) break; // Sicherheit, falls kein Datum mehr
-  }
-
-  if(i >= endTime.length){
+  if(diff <= 0){
     document.getElementById('countdown').style.display = 'none';
+    document.getElementById('gallery').style.display = 'block'; // Galerie einblenden
     return;
   }
 
-  var diffTime = endTime[i] - timeNow;
-  diffTime = Math.floor(diffTime / 1000);
+  var days = Math.floor(diff / 86400);
+  diff %= 86400;
+  var hours = Math.floor(diff / 3600);
+  diff %= 3600;
+  var minutes = Math.floor(diff / 60);
+  var seconds = diff % 60;
 
-  if(diffTime >= 0) {
-    countdown_d = Math.floor(diffTime / 86400);
-    diffTime = diffTime % 86400;
-    countdown_h = Math.floor(diffTime / 3600);
-    diffTime = diffTime % 3600; // korrigiert: & → %
+  // führende Nullen
+  hours = (hours < 10) ? '0'+hours : hours;
+  minutes = (minutes < 10) ? '0'+minutes : minutes;
+  seconds = (seconds < 10) ? '0'+seconds : seconds;
 
-    countdown_m = Math.floor(diffTime / 60);
-    countdown_s = diffTime % 60;
-
-    ausgabe_s = (countdown_s < 10) ? '0' + countdown_s : countdown_s;
-    ausgabe_m = (countdown_m < 10) ? '0' + countdown_m : countdown_m;
-    ausgabe_h = (countdown_h < 10) ? '0' + countdown_h : countdown_h;
-
-    if(countdown_d == 1) {
-      tage = 'Tag';
-    }
-
-    document.getElementById('countdown').innerHTML = 
-      'Noch <b>' + countdown_d + '</b> ' + tage + 
-      ' und <b>' + ausgabe_h + ':' + ausgabe_m + ':' + ausgabe_s + '</b> bis ' + text[i];
-  } else {
-    document.getElementById('countdown').style.display = 'none';
-  }
+  var tageText = (days == 1) ? 'Tag' : 'Tage';
+  document.getElementById('countdown').innerHTML = 
+    'Noch <b>' + days + '</b> ' + tageText + 
+    ' und <b>' + hours + ':' + minutes + ':' + seconds + '</b> bis zum Geburtstag!';
 
   setTimeout(countdown, 1000);
 }
