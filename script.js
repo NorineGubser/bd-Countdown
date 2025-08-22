@@ -1,50 +1,38 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+  const countdownDiv = document.getElementById('countdown');
+  const galleryDiv = document.getElementById('gallery');
+  const bgImageDiv = document.getElementById('bg-image');
 
-console.log("Script läuft!");
-  
-  function countdown() {
-    // Enddatum: 7. Januar 2026, 00:00:00 UTC
-    var endDate = new Date(Date.UTC(2026, 0, 7, 0, 0, 0));
-    
-    var now = new Date();
-    var nowUtc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),
-                          now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+  // Galerie & Bild am Anfang verstecken
+  galleryDiv.style.display = 'none';
 
-    var diff = Math.floor((endDate - nowUtc) / 1000);
+  function tick() {
+    const endDate = new Date(2026, 0, 7, 0, 0, 0); // 07.01.2026 00:00
+    const now = new Date();
 
-    var countdownDiv = document.getElementById('countdown');
-    var galleryDiv = document.getElementById('gallery');
+    let diffSec = Math.floor((endDate.getTime() - now.getTime()) / 1000);
 
-    if (!countdownDiv || !galleryDiv) {
-      console.error('Countdown oder Galerie Div nicht gefunden!');
-      return;
-    }
-
-    if (diff <= 0) {
+    if (diffSec <= 0) {
       countdownDiv.style.display = 'none';
+      bgImageDiv.style.display = 'none';   // Bild verschwindet mit Countdown
       galleryDiv.style.display = 'block';
       return;
     }
 
-    var days = Math.floor(diff / 86400);
-    diff %= 86400;
-    var hours = Math.floor(diff / 3600);
-    diff %= 3600;
-    var minutes = Math.floor(diff / 60);
-    var seconds = diff % 60;
+    const days = Math.floor(diffSec / 86400);
+    diffSec %= 86400;
+    const hours = Math.floor(diffSec / 3600);
+    diffSec %= 3600;
+    const minutes = Math.floor(diffSec / 60);
+    const seconds = diffSec % 60;
 
-    hours = (hours < 10) ? '0' + hours : hours;
-    minutes = (minutes < 10) ? '0' + minutes : minutes;
-    seconds = (seconds < 10) ? '0' + seconds : seconds;
+    const pad = n => String(n).padStart(2, '0');
 
-    var tageText = (days === 1) ? 'Tag' : 'Tage';
+    countdownDiv.innerHTML =
+      `Noch <b>${days}</b> Tage und <b>${pad(hours)}:${pad(minutes)}:${pad(seconds)}</b> bis zu deinem Geburtstag!`;
 
-    countdownDiv.innerHTML = 
-      'Noch <b>' + days + '</b> ' + tageText + 
-      ' und <b>' + hours + ':' + minutes + ':' + seconds + '</b> bis zu deinem Geburtstag!';
-
-    setTimeout(countdown, 1000);
+    setTimeout(tick, 1000);
   }
 
-  countdown();
+  tick();
 });
