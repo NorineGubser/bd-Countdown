@@ -3,11 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryDiv = document.getElementById('gallery');
 
   function tick() {
-    // Zielzeit: 7. Januar 2026, 00:00 Uhr **lokale Zeit**
-    const endDate = new Date(2026, 0, 7, 0, 0, 0); 
+    // Zielzeit: 7. Januar 2026, 00:00 Uhr in lokaler Zeit
+    const endDate = new Date(2026, 0, 7, 0, 0, 0);
     const now = new Date();
 
-    // Differenz in Sekunden
     let diffSec = Math.floor((endDate.getTime() - now.getTime()) / 1000);
 
     if (diffSec <= 0) {
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutes = Math.floor(diffSec / 60);
     const seconds = diffSec % 60;
 
-    // Formatierung
     const pad = (n) => String(n).padStart(2, '0');
     const tageText = (days === 1) ? 'Tag' : 'Tage';
 
