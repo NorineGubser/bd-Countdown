@@ -29,4 +29,5 @@ function countdown() {
   setTimeout(countdown, 1000);
 }
 
-window.onload = countdown;
+document.addEventListener('DOMContentLoaded', countdown);
+
