@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     countdownDiv.innerHTML = 
       'Noch <b>' + days + '</b> ' + tageText + 
-      ' und <b>' + hours + ':' + minutes + ':' + seconds + '</b> bis zum Geburtstag!';
+      ' und <b>' + hours + ':' + minutes + ':' + seconds + '</b> bis zu deinem Geburtstag!';
 
     setTimeout(countdown, 1000);
   }
