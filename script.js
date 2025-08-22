@@ -1,17 +1,17 @@
-// countdown.js
-
 document.addEventListener('DOMContentLoaded', function() {
 
   function countdown() {
-    // Enddatum: 22. August 2026
-    var endDate = new Date(2026, 7, 22, 0, 0, 0); // Monat 0-basiert: 7 = August
+    // Enddatum: 7. Januar 2026, 00:00 Uhr
+    var endDate = new Date(2026, 0, 7, 0, 0, 0); // Januar = 0
     var now = new Date();
-    var diff = Math.floor((endDate - now) / 1000); // Differenz in Sekunden
+
+    // Differenz in Sekunden
+    var diff = Math.floor((endDate - now) / 1000);
 
     var countdownDiv = document.getElementById('countdown');
     var galleryDiv = document.getElementById('gallery');
 
-    // Sicherheitscheck: Elemente existieren
+    // Sicherheitscheck
     if (!countdownDiv || !galleryDiv) {
       console.error('Countdown oder Galerie Div nicht gefunden!');
       return;
