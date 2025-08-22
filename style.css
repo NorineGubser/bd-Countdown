@@ -14,7 +14,7 @@ body {
   background-color: DeepSkyBlue ;
   background-image: url("Cloud.svg");
   background-repeat: no-repeat;
-  background-position: 90% top;
+  background-position: center;
   color: midnightblue;
   height: 100vh;
 }
