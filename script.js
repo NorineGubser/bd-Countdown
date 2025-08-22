@@ -2,18 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const countdownDiv = document.getElementById('countdown');
   const galleryDiv = document.getElementById('gallery');
 
-  if (!countdownDiv || !galleryDiv) {
-    console.error('countdown oder gallery nicht gefunden.');
-    return;
-  }
-
-  // 2026-01-07 00:00 in Europe/Zurich  ≙  2026-01-06 23:00:00 UTC
-  const endUtcMs = Date.parse('2026-01-06T23:00:00Z'); // absoluter Zeitpunkt
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
   function tick() {
-    let diffSec = Math.floor((endUtcMs - Date.now()) / 1000);
+    // Zielzeit: 7. Januar 2026, 00:00 Uhr **lokale Zeit**
+    const endDate = new Date(2026, 0, 7, 0, 0, 0); 
+    const now = new Date();
+
+    // Differenz in Sekunden
+    let diffSec = Math.floor((endDate.getTime() - now.getTime()) / 1000);
 
     if (diffSec <= 0) {
       countdownDiv.style.display = 'none';
@@ -28,7 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutes = Math.floor(diffSec / 60);
     const seconds = diffSec % 60;
 
+    // Formatierung
+    const pad = (n) => String(n).padStart(2, '0');
     const tageText = (days === 1) ? 'Tag' : 'Tage';
+
     countdownDiv.innerHTML =
       `Noch <b>${days}</b> ${tageText} und <b>${pad(hours)}:${pad(minutes)}:${pad(seconds)}</b> bis zum Geburtstag!`;
 
