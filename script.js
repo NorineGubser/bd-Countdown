@@ -1,6 +1,6 @@
 function countdown() {
   // Enddatum: 7. Januar 2026, 00:00 Uhr
-  var endDate = new Date(2025, 0, 7, 0, 0, 0);
+  var endDate = new Date(2026, 0, 7, 0, 0, 0);
   var now = new Date();
   var diff = Math.floor((endDate - now) / 1000); // Differenz in Sekunden
 
