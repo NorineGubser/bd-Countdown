@@ -1,40 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const countdownDiv = document.getElementById('countdown');
-  const galleryDiv   = document.getElementById('gallery');
-  const bgImageDiv   = document.getElementById('bg-image');
+function countdown() {
+  // Enddatum: 7. Januar 2026, 00:00 Uhr
+  var endDate = new Date(2026, 0, 7, 0, 0, 0);
+  var now = new Date();
+  var diff = Math.floor((endDate - now) / 1000); // Differenz in Sekunden
 
-  // Sicherstellen: Countdown & kleines Bild sichtbar, Galerie versteckt
-  countdownDiv.style.display = 'block';
-  bgImageDiv.style.display   = 'flex';
-  galleryDiv.style.display   = 'none';
-
-  const pad = n => String(n).padStart(2, '0');
-
-  function tick() {
-    // Ziel: 07.01.2026, 00:00 (lokale Zeit)
-    // Test: Countdown endet in 10 Sekunden
-    var endDate = new Date(new Date().getTime() + 10 * 1000);
-
-
-      // Countdown abgelaufen → Countdown & Bild aus, Galerie an
-      countdownDiv.style.display = 'none';
-      bgImageDiv.style.display   = 'none';
-      galleryDiv.style.display   = 'block';
-      return;
-    }
-
-    const days = Math.floor(diffSec / 86400);
-    diffSec %= 86400;
-    const hours   = Math.floor(diffSec / 3600);
-    diffSec      %= 3600;
-    const minutes = Math.floor(diffSec / 60);
-    const seconds = diffSec % 60;
-
-    countdownDiv.innerHTML =
-      `Noch <b>${days}</b> Tage und <b>${pad(hours)}:${pad(minutes)}:${pad(seconds)}</b> bis zu deinem Geburtstag!`;
-
-    setTimeout(tick, 1000);
+  if (diff <= 0) {
+    document.getElementById('countdown').style.display = 'none';
+    document.getElementById('countdown-image').style.display = 'none';
+    document.getElementById('gallery').style.display = 'block'; // Galerie einblenden
+    return;
   }
 
-  tick();
-});
+  var days = Math.floor(diff / 86400);
+  diff %= 86400;
+  var hours = Math.floor(diff / 3600);
+  diff %= 3600;
+  var minutes = Math.floor(diff / 60);
+  var seconds = diff % 60;
+
+  // führende Nullen
+  hours = (hours < 10) ? '0' + hours : hours;
+  minutes = (minutes < 10) ? '0' + minutes : minutes;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+  var tageText = (days == 1) ? 'Tag' : 'Tage';
+  document.getElementById('countdown').innerHTML =
+    'Noch <b>' + days + '</b> ' + tageText +
+    ' und <b>' + hours + ':' + minutes + ':' + seconds + '</b> bis zu deinem Geburtstag!';
+
+  setTimeout(countdown, 1000);
+}
+
+window.onload = countdown;
